@@ -90,7 +90,6 @@ res.status(500).json({message:"Server Error"})
 // express gets those payload to the server
 // the server rediredcts to /queue where all the questions list are found
 app.post("/questions", isLoggedin , async(req,res)=>{
-    console.log(req.body)
     try{
         // values the user is only allowded to sned
     const { text,topic,name }= req.body

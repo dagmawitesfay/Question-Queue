@@ -2,7 +2,6 @@
 
 // select the icons here
 const completedIcon = document.querySelectorAll(".completed")
-const editIcon = document.querySelectorAll(".edit") 
 const deleteBtn = document.querySelectorAll(".delete") 
 const button = document.querySelectorAll(".vote")
 
