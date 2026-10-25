@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <title>Question Queue</title>
+    <link rel="stylesheet" href="/signup.css">
+</head>
+<body>
+
+       <header>
+        <h1>Question Queue</h1>
+        <nav>
+        <ul>
+            <a href="/signup" class="btn">Sign up</a>
+        </ul>
+        </nav>
+    </header>
+
+    
+     <section class="login-wrapper">
+        <!-- LOGIN FORM -->
+          <form action="/login" method="post">
+            <span>Welcome Back</span>
+            <h1>Log in to the <em>Queue</em></h1>
+            <p>Pick up where you left off-your questions and upvotes are waiting.</p>
+            <% if (message && message.length) { %>
+              <div class="error-message">
+                <p role="alert"><%= message[0] %></p>
+              </div>
+            <% } %>
+
+            <!-- Email -->
+              <div class="field">
+          <label for="email">Email </label>
+          <input type="email" name="email" id="email" required placeholder="you@example.com"/>
+            </div>
+
+              <!-- Passowrd -->
+              <div class="field">
+          <label for="password">Password </label>
+          <input type="password" name="password" id="password" required placeholder="Your Password"/>
+            </div>
+
+             <div class="btn-container">
+                <button class="btn">Log in</button>
+                <p>No account?<a href="/signup">Sign Up</a></p>
+              </div>
+
+          </form>
+      
+         <section class="image-container">
+            <div class="image-box">
+                <img src="/images/raised-hand.svg" alt="Raise Hand">
+                <p>Your account keeps track of what you asked and what you upvoted, so you can edit your own questions later.</p>
+            </div>
+          </section>
+            </section>
+
+
+</body>
+</html>

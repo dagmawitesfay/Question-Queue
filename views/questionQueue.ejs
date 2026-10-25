@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Question Queue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/75136afa19.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="main-wrapper">
+
+    <section class="queue-container">
+      <div>
+        <h1>The <em>Queue</em></h1>
+        <% const openQuestions = questions.filter(question => question.answered !== true); %>
+        <% const answeredQuestions = questions.filter(question => question.answered === true); %>
+        <p><%= openQuestions.length %> open questions</p>
+      </div>
+
+      <% if (openQuestions.length > 0) { %>
+        <ul class="messages">
+          <% for (const question of openQuestions) { %>
+            <li class="question">
+              <button class="vote" data-question-id="<%= question._id %>">
+                <i class="fa-solid fa-arrow-up"></i>
+                <span class="vote-count"><%= question.votes %></span>
+              </button>
+              <div class="question-container">
+                <h2 class="text"><%= question.text %></h2>
+                <div class="data-container">
+                  <span class="topic"><%= question.topic %></span>
+                  <span>Asked by <%= question.name %></span>
+                  <span><%= question.createdAt.toLocaleDateString() %></span>
+                </div>
+              </div>
+              <div class="btn-container">
+                <button data-question-id="<%= question._id %>" class="btn completed" aria-label="Mark answered"><i class="fa-solid fa-check"></i></button>
+                <button data-question-id="<%= question._id %>" class="btn edit" aria-label="Edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                <button data-question-id="<%= question._id %>" class="btn delete" aria-label="Delete"><i class="fa-solid fa-trash-can"></i></button>
+              </div>
+            </li>
+          <% } %>
+        </ul>
+      <% } %>
+
+    <!-- Displays questions that are answered / marked as complete -->
+      <% if (answeredQuestions.length > 0) { %>
+        <h2>Answered <%= answeredQuestions.length %></h2>
+         <ul class="messages">
+          <% for (const question of answeredQuestions) { %>
+            <li class="question-answered">
+              <button class="answered-vote" data-question-id="<%= question._id %>">
+                <i class="fa-solid fa-arrow-up"></i>
+                <span class="vote-count"><%= question.votes %></span>
+              </button>
+              <div class="question-container">
+                <h2 class="text-answered"><%= question.text %></h2>
+                <div class="data-container">
+                  <span class="answered">Answered</span>
+                  <span class="topic"><%= question.topic %></span>
+                  <span>Asked by <%= question.name %></span>
+                  <span><%= question.createdAt.toLocaleDateString() %></span>
+                </div>
+              </div>
+            </li>
+          <% } %>
+        </ul>
+      <% } %>
+
+      <!-- Display the ui for empty container/questions -->
+      <% if (questions.length === 0) { %>
+        <div class="empty-contianer">
+          <img src="/images/bubble-question.svg" alt="">
+          <h1>No questions yet</h1>
+          <p>Be the first to ask</p>
+        </div>
+      <% } %>
+    </section>
+
+  
+    <section class="form-container">
+      <form action="/questions" method="post">
+        <p>Before class starts</p>
+
+        
+        <div class="wondering-container">
+          <img src="/images/bubble-question.svg" alt="Image Question"/>
+          <h2>What are you <em>wondering?</em></h2>
+        </div>
+
+       
+        <div class="field">
+          <label for="question">Your Question</label>
+          <textarea name="text" id="question" rows="5" required></textarea>
+        </div>
+
+        <div class="field">
+          <label for="que">Topic</label>
+          <select name="topic" id="que">
+            <option value="Express">Express</option>
+            <option value="MongoDB">MongoDB</option>
+            <option value="Node">Node</option>
+            <option value="Auth">Auth</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="name">Posting as</label>
+          <input type="text" name="name" id="name" required/>
+        </div>
+
+        <button type="submit">Post Question</button>
+      </form>
+    </section>
+
+  </main>
+  <script src="/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+body {
+    margin: 0;
+    font-family: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+    color: #0a0a0a;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 1.25rem;
+    justify-content: space-around;
+}
+
+header h1 {
+    color: black;
+    font-size: 1.125rem;
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+}
+
+em {
+    font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 400;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+li, a {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+nav li a {
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+}
+
+.logIn {
+    font-weight: 500;
+}
+
+.hero-section {
+    max-width: 960px;
+    margin: 30px auto;
+    padding: 60px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+.hero-section h2 {
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 1;
+    margin: 0;
+}
+
+.hero-section p {
+    max-width: 460px;
+    margin: 20px auto;
+    color: #6b6b6b;
+    line-height: 1.5;
+}
+
+.hero-section p a {
+    text-decoration: underline;
+}
+
+.why-it-help-container, .how-it-works-container {
+    padding: 80px 20px;
+    text-align: center;
+    border-top: 1px solid #e6e6e6;
+}
+
+.why-it-help-container span, .how-it-works-container > span {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+}
+
+.why-it-help-container h2, .how-it-works-container h2 {
+    font-size: 40px;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    margin: 12px 0 40px;
+}
+
+.box {
+    width: 350px;
+    padding: 24px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid #e6e6e6;
+    text-align: left;
+}
+
+.box img {
+    width: 90px;
+    height: 90px;
+}
+
+.box p {
+    color: #6b6b6b;
+    line-height: 1.5;
+}
+
+.circle {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #0a0a0a;
+    border-radius: 50%;
+    margin-top: 12px;
+}
+
+.circle span {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #0a0a0a;
+    border: none;
+    color: white;
+    font-weight: 500;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.how-it-works-layout,
+.why-it-helps-layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
